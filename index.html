@@ -337,10 +337,11 @@
     .pain-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
+      gap: 48px;
+      align-items: start;
       margin-top: 56px;
     }
+    .pain-side { min-width: 0; }
     .pain-side h3 {
       font-size: 20px;
       font-weight: 500;
@@ -790,7 +791,13 @@
       .cards-grid { grid-template-columns: 1fr 1fr; }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
-      .pain-grid { grid-template-columns: 1fr; gap: 40px; }
+      .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 56px;
+    }
       .pricing-grid { grid-template-columns: 1fr; }
       .cta-inner { grid-template-columns: 1fr; gap: 48px; }
       .apps-grid { grid-template-columns: 1fr 1fr; }
