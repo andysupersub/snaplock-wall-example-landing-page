@@ -869,25 +869,21 @@
 
     /* ── PAGE LOAD ANIMATIONS ── */
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-16px); }
+      from { opacity: 0; transform: translateY(-20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(32px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
 
-    .anim-bar     { animation: slideDown 0.5s ease forwards; opacity: 0; animation-delay: 0s; }
-    .anim-nav     { animation: slideDown 0.5s ease forwards; opacity: 0; animation-delay: 0.15s; }
-    .anim-logo    { animation: fadeUp 0.6s ease forwards; opacity: 0; animation-delay: 0.35s; }
-    .anim-h1      { animation: fadeUp 0.7s ease forwards; opacity: 0; animation-delay: 0.5s; }
-    .anim-desc    { animation: fadeUp 0.6s ease forwards; opacity: 0; animation-delay: 0.7s; }
-    .anim-proof   { animation: fadeUp 0.6s ease forwards; opacity: 0; animation-delay: 0.85s; }
-    .anim-cta     { animation: fadeUp 0.6s ease forwards; opacity: 0; animation-delay: 1.0s; }
+    .anim-bar     { animation: slideDown 0.8s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 0s; }
+    .anim-nav     { animation: slideDown 0.8s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 0.2s; }
+    .anim-logo    { animation: fadeUp 1.0s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 0.5s; }
+    .anim-h1      { animation: fadeUp 1.0s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 0.75s; }
+    .anim-desc    { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.0s; }
+    .anim-proof   { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.2s; }
+    .anim-cta     { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.4s; }
   </style>
 </head>
 <body>
