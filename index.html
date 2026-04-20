@@ -935,14 +935,24 @@
           const progress = Math.min(elapsed / duration, 1);
           const ease = 1 - Math.pow(1 - progress, 3);
           if (range) {
-            const maxVal = +el.dataset.range;
             const minVal = +el.dataset.target;
-            // Use decimal for small numbers so animation feels full duration
-            const currentMin = (minVal * ease).toFixed(1).replace(/\.0$/, '');
-            const currentMax = (maxVal * ease).toFixed(1).replace(/\.0$/, '');
-            const displayMin = progress < 1 ? currentMin : minVal;
-            const displayMax = progress < 1 ? currentMax : maxVal;
-            el.textContent = displayMin + ' - ' + displayMax;
+            const maxVal = +el.dataset.range;
+            if (progress >= 1) {
+              el.textContent = minVal + ' - ' + maxVal;
+            } else {
+              // Slot machine: scramble 0-9, settle in last 20%
+              const settlePoint = 0.8;
+              if (progress < settlePoint) {
+                const r1 = Math.floor(Math.random() * 10);
+                const r2 = Math.floor(Math.random() * 10);
+                el.textContent = r1 + ' - ' + r2;
+              } else {
+                const settleEase = (progress - settlePoint) / (1 - settlePoint);
+                const d1 = Math.round(minVal * settleEase);
+                const d2 = Math.round(maxVal * settleEase);
+                el.textContent = d1 + ' - ' + d2;
+              }
+            }
           } else {
             el.textContent = Math.round(target * ease) + suffix;
           }
