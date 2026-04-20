@@ -1353,7 +1353,8 @@
       <h2 class="section-heading">No hidden costs.<br>No surprises.</h2>
       <p class="section-sub">Fixed, predictable pricing per panel. All prices +GST. Acoustic and fire-rated options available to spec.</p>
 
-      <div class="pricing-grid">
+      <!-- 2 PANEL CARDS -->
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr; margin-bottom:20px;">
 
         <!-- BASIC PANELS -->
         <div class="pricing-card fade-up">
@@ -1364,13 +1365,7 @@
           <div class="pricing-unit">per panel +GST · starting price</div>
           <div class="pricing-bestfor">Best for residential homes, new builds, offices, and standard commercial fit-outs.</div>
           <table class="pricing-panel-table">
-            <thead>
-              <tr>
-                <th>Panel Size</th>
-                <th>Dimensions</th>
-                <th>Price +GST</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Panel Size</th><th>Dimensions</th><th>Price +GST</th></tr></thead>
             <tbody>
               <tr><td>Snapwall 2.4</td><td>2404×1185mm</td><td>$250</td></tr>
               <tr><td>Snapwall 3.6</td><td>3608×1185mm</td><td>$375</td></tr>
@@ -1381,7 +1376,7 @@
             <li class="pricing-row"><span class="check">✓</span> Panels primed & pre-painted</li>
             <li class="pricing-row"><span class="check">✓</span> Timber plates & screws included</li>
             <li class="pricing-row"><span class="check">✓</span> Sealant & associated hardware</li>
-            <li class="pricing-row"><span class="check">✓</span> Touch-up paint included</li>
+            <li class="pricing-row"><span class="check">✓</span> Touch-up paint & 5mm packers</li>
             <li class="pricing-row"><span class="check">✓</span> 2× Panel Lifters per order</li>
           </ul>
           <a href="#contact" class="pricing-cta pricing-cta-outline">Get a Quote →</a>
@@ -1396,13 +1391,7 @@
           <div class="pricing-unit">per panel +GST · starting price</div>
           <div class="pricing-bestfor">Best for schools, healthcare, aged-care facilities, and high-performance commercial spaces.</div>
           <table class="pricing-panel-table">
-            <thead>
-              <tr>
-                <th>Panel Size</th>
-                <th>Dimensions</th>
-                <th>Price +GST</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Panel Size</th><th>Dimensions</th><th>Price +GST</th></tr></thead>
             <tbody>
               <tr><td>Snapwall 2.4</td><td>2404×1185mm</td><td>$380</td></tr>
               <tr><td>Snapwall 3.6</td><td>3608×1185mm</td><td>$570</td></tr>
@@ -1419,32 +1408,118 @@
           <a href="#contact" class="pricing-cta pricing-cta-solid">Get a Quote →</a>
         </div>
 
-        <!-- CUSTOM / QUOTE -->
-        <div class="pricing-card fade-up">
-          <span class="pricing-card-tag">Custom</span>
-          <h3>Project Quote</h3>
-          <p class="pricing-card-desc">Large-scale or complex project? We'll spec the right panels, calculate quantities, and give you a full project price.</p>
-          <div class="pricing-amount" style="font-size:32px; padding-top:6px;">Let's talk</div>
-          <div class="pricing-unit">tailored to your project</div>
-          <div class="pricing-bestfor">Best for large commercial builds, industrial partitions, and multi-site rollouts.</div>
-          <ul class="pricing-rows">
-            <li class="pricing-row"><span class="check">✓</span> Full project scoping & panel count</li>
-            <li class="pricing-row"><span class="check">✓</span> Mix of basic & acoustic panels</li>
-            <li class="pricing-row"><span class="check">✓</span> Fire-rated systems available</li>
-            <li class="pricing-row"><span class="check">✓</span> Nationwide delivery from Cambridge</li>
-            <li class="pricing-row"><span class="check">✓</span> Technical support from our team</li>
-            <li class="pricing-row"><span class="check">✓</span> Response within 24 hours</li>
-          </ul>
-          <a href="#contact" class="pricing-cta pricing-cta-outline">Contact Us →</a>
+      </div>
+
+      <!-- ESTIMATOR CARD -->
+      <div class="fade-up" style="background:var(--navy); border-radius:18px; padding:48px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+
+        <!-- LEFT: inputs -->
+        <div>
+          <p style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:10px;">Quick Estimator</p>
+          <h3 style="font-size:26px; font-weight:700; letter-spacing:-0.04em; color:white; margin-bottom:6px; line-height:1.2;">How much will your<br>project cost?</h3>
+          <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.55); margin-bottom:32px; line-height:1.6;">Enter your wall dimensions and we'll estimate the panel cost for both sides +GST.</p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div>
+              <label style="display:block; font-size:11px; font-weight:600; color:rgba(255,255,255,0.45); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Wall Height (m)</label>
+              <select id="est-height" onchange="calcEstimate()" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:10px; color:white; font-size:15px; font-family:'Inter',sans-serif; font-weight:400; outline:none; cursor:pointer;">
+                <option value="2.4">2.4m (Snapwall 2.4)</option>
+                <option value="3.6">3.6m (Snapwall 3.6)</option>
+                <option value="4.0">4.0m (Snapwall 4)</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-size:11px; font-weight:600; color:rgba(255,255,255,0.45); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Wall Length (m)</label>
+              <input id="est-length" type="number" min="1" max="200" value="6" oninput="calcEstimate()" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:10px; color:white; font-size:15px; font-family:'Inter',sans-serif; font-weight:400; outline:none;" placeholder="e.g. 6"/>
+            </div>
+          </div>
+
+          <!-- Acoustic toggle -->
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
+            <div id="est-toggle" onclick="toggleAcoustic()" style="width:48px; height:26px; border-radius:100px; background:rgba(255,255,255,0.15); cursor:pointer; position:relative; transition:background 0.25s; flex-shrink:0;">
+              <div id="est-knob" style="position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:white; transition:left 0.25s;"></div>
+            </div>
+            <span style="font-size:14px; font-weight:400; color:rgba(255,255,255,0.75);">Acoustic panels <span id="est-acoustic-label" style="color:rgba(255,255,255,0.4); font-weight:300;">(off)</span></span>
+          </div>
+          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.35); margin-bottom:0;">Price shown is for both sides of the wall, panels only +GST. Excludes delivery & labour.</p>
+        </div>
+
+        <!-- RIGHT: result -->
+        <div style="background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.10); border-radius:14px; padding:36px; text-align:center;">
+          <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px;">Estimated Cost (Both Sides)</p>
+
+          <div id="est-price" style="font-size:56px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1; margin-bottom:4px;">$4,458</div>
+          <div id="est-price-gst" style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.45); margin-bottom:28px;">+GST · approx. $5,127 inc GST</div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:28px;">
+            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
+              <div id="est-panels" style="font-size:22px; font-weight:700; color:white; line-height:1;">10</div>
+              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Panels</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
+              <div id="est-height-disp" style="font-size:22px; font-weight:700; color:white; line-height:1;">2.4m</div>
+              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Height</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
+              <div id="est-type-disp" style="font-size:14px; font-weight:700; color:white; line-height:1; padding-top:4px;">Basic</div>
+              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Type</div>
+            </div>
+          </div>
+
+          <a href="#contact" style="display:block; background:var(--blue); color:white; text-decoration:none; padding:13px 0; border-radius:100px; font-size:14px; font-weight:600; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Get Exact Quote →</a>
         </div>
 
       </div>
 
-      <p style="text-align:center; margin-top:28px; font-size:12px; font-weight:300; color:var(--grey);">
-        * Prices are per panel +GST and exclude delivery, electrical, fire consent, skirting/scotia, and door frames unless specified. Delivery quoted based on site address.
+      <p style="text-align:center; margin-top:20px; font-size:12px; font-weight:300; color:var(--grey);">
+        * Prices are per panel +GST and exclude delivery, electrical, fire consent, skirting/scotia, and door frames unless specified.
       </p>
     </div>
   </section>
+
+  <script>
+    var acousticOn = false;
+
+    // Panel prices by height
+    var PRICES = {
+      basic:    { '2.4': 250, '3.6': 375, '4.0': 420 },
+      acoustic: { '2.4': 380, '3.6': 570, '4.0': 630 }
+    };
+
+    function toggleAcoustic() {
+      acousticOn = !acousticOn;
+      var toggle = document.getElementById('est-toggle');
+      var knob   = document.getElementById('est-knob');
+      var label  = document.getElementById('est-acoustic-label');
+      toggle.style.background = acousticOn ? '#276ce9' : 'rgba(255,255,255,0.15)';
+      knob.style.left = acousticOn ? '25px' : '3px';
+      label.textContent = acousticOn ? '(on)' : '(off)';
+      label.style.color = acousticOn ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.4)';
+      calcEstimate();
+    }
+
+    function calcEstimate() {
+      var height  = document.getElementById('est-height').value;
+      var length  = parseFloat(document.getElementById('est-length').value) || 0;
+      var type    = acousticOn ? 'acoustic' : 'basic';
+      var pricePerPanel = PRICES[type][height];
+
+      // panels per side = ceil(length / 1.185), both sides = ×2
+      var panelsPerSide = Math.ceil(length / 1.185);
+      var totalPanels   = panelsPerSide * 2;
+      var totalEx       = totalPanels * pricePerPanel;
+      var totalInc      = totalEx * 1.15;
+
+      document.getElementById('est-price').textContent     = '$' + totalEx.toLocaleString('en-NZ', {maximumFractionDigits:0});
+      document.getElementById('est-price-gst').textContent = '+GST · approx. $' + totalInc.toLocaleString('en-NZ', {maximumFractionDigits:0}) + ' inc GST';
+      document.getElementById('est-panels').textContent    = totalPanels;
+      document.getElementById('est-height-disp').textContent = height + 'm';
+      document.getElementById('est-type-disp').textContent   = acousticOn ? 'Acoustic' : 'Basic';
+    }
+
+    // Init on load
+    calcEstimate();
+  </script>
 
   <!-- HOW IT WORKS -->
   <section class="how-section">
