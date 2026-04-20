@@ -288,7 +288,7 @@
     }
     .stat-num span { color: var(--blue); }
     .stat-label {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 400;
       color: var(--grey);
       line-height: 1.4;
@@ -946,7 +946,7 @@
       </div>
 
       <div class="stat-item">
-        <div class="stat-num" style="color:var(--blue);">2 - 3 days</div>
+        <div class="stat-num" style="color:var(--blue);"><span class="stat-counter" data-target="2" data-suffix="" data-range="3">0</span></div>
         <div class="stat-label">Days to full install</div>
       </div>
 
@@ -962,6 +962,7 @@
     (function() {
       function animateCounter(el) {
         const target = +el.dataset.target;
+        const range = el.dataset.range ? +el.dataset.range : null;
         const suffix = el.dataset.suffix || '';
         const duration = 1800;
         const start = performance.now();
@@ -969,7 +970,13 @@
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
           const ease = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(target * ease) + suffix;
+          const val = Math.round(target * ease);
+          if (range) {
+            const val2 = Math.round(range * ease);
+            el.textContent = val + ' - ' + val2;
+          } else {
+            el.textContent = val + suffix;
+          }
           if (progress < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
