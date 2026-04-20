@@ -985,19 +985,16 @@
       <p style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.58); margin:0 auto 40px;">Traditional GIB® requires up to 9 site visits and multiple trades.<br>Snaplock replaces all of that — one crew, one visit, done in 2–3 days.</p>
 
       <!-- Video box: thumbnail + click to play -->
-      <!-- Video wrapper with extra height to hide YouTube chrome -->
-      <div style="position:relative; width:100%; max-width:760px; margin:0 auto; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.10); background:#011648;">
-        <div id="video-container" style="position:relative; aspect-ratio:16/9; cursor:pointer;" onclick="this.innerHTML='<div style=\'position:absolute;inset:-56px 0;overflow:hidden;\'><iframe src=\'https://www.youtube.com/embed/tUahojHwLgw?autoplay=1&rel=0&modestbranding=1\' style=\'width:100%;height:calc(100% + 112px);border:none;display:block;\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe></div>'; this.style.cursor='default';">
-          <!-- Thumbnail via CSS background -->
+      <!-- Video box -->
+      <div style="position:relative; width:100%; max-width:760px; margin:0 auto; border-radius:14px; overflow:hidden; aspect-ratio:16/9; border:1px solid rgba(255,255,255,0.10);">
+        <div id="video-container" style="position:absolute; inset:0; cursor:pointer;" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/tUahojHwLgw?autoplay=1&rel=0\' style=\'width:100%;height:100%;border:none;\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>'; this.style.cursor='default';">
           <div style="position:absolute; inset:0; background-image:url('https://i.ytimg.com/vi/tUahojHwLgw/hqdefault.jpg'); background-size:cover; background-position:center;"></div>
-          <!-- Dark overlay -->
           <div style="position:absolute; inset:0; background:rgba(0,0,0,0.30);"></div>
-          <!-- Play button -->
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
             <div style="width:72px; height:72px; background:rgba(255,255,255,0.18); border:2px solid rgba(255,255,255,0.5); border-radius:50%; display:flex; align-items:center; justify-content:center;">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
-            <span style="font-size:14px; font-weight:400; color:rgba(255,255,255,0.85); letter-spacing:0.02em;">Watch how Snaplock works</span>
+            <span style="font-size:14px; font-weight:400; color:rgba(255,255,255,0.85);">Watch how Snaplock works</span>
           </div>
         </div>
       </div>
