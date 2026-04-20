@@ -834,6 +834,22 @@
     .anim-desc    { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.0s; }
     .anim-proof   { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.2s; }
     .anim-cta     { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; animation-delay: 1.4s; }
+
+    /* ── STOP WAITING SECTION ANIMATIONS ── */
+    .sw-anim {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .sw-anim.sw-visible {
+      animation: swFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .sw-anim-1.sw-visible { animation-delay: 0s; }
+    .sw-anim-2.sw-visible { animation-delay: 0.2s; }
+    .sw-anim-3.sw-visible { animation-delay: 0.4s; }
+    @keyframes swFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -981,11 +997,11 @@
   <!-- STOP WAITING + VIDEO -->
   <div style="background:var(--navy); padding:80px 5%; text-align:center;">
     <div style="max-width:900px; margin:0 auto;">
-      <h2 style="font-size:clamp(32px,4.5vw,56px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--white); margin-bottom:20px;">Stop Waiting Weeks<br>for Your Walls to Be Done!</h2>
-      <p style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.58); margin:0 auto 40px;">Traditional GIB® requires up to 9 site visits and multiple trades. Snaplock replaces all of that!<br>One crew, one visit, done in 2–3 days.</p>
+      <h2 class="sw-anim sw-anim-1" style="font-size:clamp(32px,4.5vw,56px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--white); margin-bottom:20px;">Stop Waiting Weeks<br>for Your Walls to Be Done!</h2>
+      <p class="sw-anim sw-anim-2" style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.58); margin:0 auto 40px;">Traditional GIB® requires up to 9 site visits and multiple trades. Snaplock replaces all of that!<br>One crew, one visit, done in 2–3 days.</p>
 
       <!-- Video box: thumbnail + click to play -->
-      <!-- Video box -->
+      <div class="sw-anim sw-anim-3" style="width:100%;"><!-- Video box -->
       <div style="position:relative; width:100%; max-width:760px; margin:0 auto; border-radius:14px; overflow:hidden; aspect-ratio:16/9; border:1px solid rgba(255,255,255,0.10);">
         <div id="video-container" style="position:absolute; inset:0; cursor:pointer;" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/tUahojHwLgw?autoplay=1&rel=0\' style=\'width:100%;height:100%;border:none;\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>'; this.style.cursor='default';">
           <div style="position:absolute; inset:0; background-image:url('https://i.ytimg.com/vi/tUahojHwLgw/hqdefault.jpg'); background-size:cover; background-position:center;"></div>
@@ -997,7 +1013,7 @@
             <span style="font-size:14px; font-weight:400; color:rgba(255,255,255,0.85);">Watch how Snaplock works</span>
           </div>
         </div>
-      </div>
+      </div></div>
 
     </div>
   </div>
@@ -1409,6 +1425,21 @@
         }
       });
     });
+  </script>
+
+  <script>
+    (function() {
+      const swItems = document.querySelectorAll('.sw-anim');
+      const swObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('sw-visible');
+            swObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      swItems.forEach(el => swObserver.observe(el));
+    })();
   </script>
 </body>
 </html>
