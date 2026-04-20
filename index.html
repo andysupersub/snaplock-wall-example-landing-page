@@ -1499,12 +1499,12 @@
           <!-- COL 1: Title + inputs -->
           <div style="background:white; border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:20px; box-shadow:0 2px 16px rgba(1,22,72,0.06);">
             <div>
-              <p style="font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:8px;">Quick Estimator</p>
+              <p style="font-size:14px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--blue); margin-bottom:8px;">Quick Estimator</p>
               <h3 style="font-size:24px; font-weight:700; letter-spacing:-0.04em; color:var(--navy); line-height:1.2;">How much will your project cost?</h3>
             </div>
 
             <div>
-              <label style="display:block; font-size:12px; font-weight:700; color:var(--grey); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Wall Height</label>
+              <label style="display:block; font-size:14px; font-weight:700; color:var(--grey); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:8px;">Wall Height</label>
               <select id="est-height" onchange="calcEstimate()" style="width:100%; padding:12px 14px; background:#f0f4fd; border:none; border-radius:12px; color:var(--navy); font-size:15px; font-family:'Inter',sans-serif; font-weight:500; outline:none; cursor:pointer;">
                 <option value="2.4">2.4m — Snapwall 2.4</option>
                 <option value="3.6">3.6m — Snapwall 3.6</option>
@@ -1513,7 +1513,7 @@
             </div>
 
             <div>
-              <label style="display:block; font-size:12px; font-weight:700; color:var(--grey); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Wall Length (m)</label>
+              <label style="display:block; font-size:14px; font-weight:700; color:var(--grey); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:8px;">Wall Length (m)</label>
               <input id="est-length" type="number" min="1" max="200" value="6" oninput="calcEstimate()" style="width:100%; padding:12px 14px; background:#f0f4fd; border:none; border-radius:12px; color:var(--navy); font-size:15px; font-family:'Inter',sans-serif; font-weight:500; outline:none;" placeholder="e.g. 6"/>
             </div>
 
@@ -1529,7 +1529,7 @@
           <!-- COL 2: Big price card (dark navy like BCA card in reference) -->
           <div style="background:var(--navy); border-radius:20px; padding:32px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 8px 32px rgba(1,22,72,0.2);">
             <div>
-              <p style="font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:32px;">Estimated Cost · Both Sides</p>
+              <p style="font-size:14px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:32px;">Estimated Cost · Both Sides</p>
               <p style="font-size:15px; font-weight:400; color:rgba(255,255,255,0.45); margin-bottom:4px;">Panels +GST</p>
               <div id="est-price" style="font-size:52px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1; margin-bottom:4px;">$3,000</div>
               <div id="est-price-gst" style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.4);">approx. $3,450 inc GST</div>
@@ -1537,11 +1537,11 @@
             <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:24px;">
               <div style="display:flex; justify-content:space-between; align-items:flex-end;">
                 <div>
-                  <p style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.35); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">Panels needed</p>
+                  <p style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.35); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Panels needed</p>
                   <div id="est-panels" style="font-size:32px; font-weight:700; color:white; letter-spacing:-0.04em;">12</div>
                 </div>
                 <div style="text-align:right;">
-                  <p style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.35); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">Type</p>
+                  <p style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.35); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Type</p>
                   <div id="est-type-disp" style="font-size:18px; font-weight:700; color:white;">Basic</div>
                 </div>
               </div>
@@ -1553,9 +1553,9 @@
 
             <!-- Height pill card -->
             <div style="background:var(--blue); border-radius:20px; padding:28px 28px 24px; flex:1; box-shadow:0 8px 24px rgba(39,108,233,0.25);">
-              <p style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">Wall Height</p>
+              <p style="font-size:14px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">Wall Height</p>
               <div id="est-height-disp" style="font-size:44px; font-weight:700; color:white; letter-spacing:-0.05em; line-height:1;">2.4m</div>
-              <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.55); margin-top:8px;">Selected panel size</p>
+              <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.55); margin-top:8px;">Selected panel size</p>
             </div>
 
             <!-- CTA card -->
@@ -1567,9 +1567,9 @@
 
         </div>
 
-        <p style="text-align:center; margin-top:20px; font-size:13px; font-weight:300; color:var(--grey);">Panels only +GST · excludes delivery, labour, electrical & accessories.</p>
+        <p style="text-align:center; margin-top:20px; font-size:14px; font-weight:300; color:var(--grey);">Panels only +GST · excludes delivery, labour, electrical & accessories.</p>
       </div>
-      <p style="text-align:center; margin-top:20px; font-size:12px; font-weight:300; color:var(--grey);">
+      <p style="text-align:center; margin-top:20px; font-size:14px; font-weight:300; color:var(--grey);">
         * Prices are per panel +GST and exclude delivery, electrical, fire consent, skirting/scotia, and door frames unless specified.
       </p>
     </div>
