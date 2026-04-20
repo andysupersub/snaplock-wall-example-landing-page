@@ -257,14 +257,13 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      align-items: center;
     }
     .stat-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 20px 0;
+      padding: 20px 32px;
       position: relative;
     }
     .stat-item + .stat-item::before {
@@ -935,12 +934,14 @@
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
           const ease = 1 - Math.pow(1 - progress, 3);
-          const val = Math.round(target * ease);
           if (range) {
-            const val2 = Math.round(range * ease);
-            el.textContent = val + ' - ' + val2;
+            const maxVal = +el.dataset.range;
+            const minVal = +el.dataset.target;
+            const currentMin = Math.round(minVal * ease);
+            const currentMax = Math.round(maxVal * ease);
+            el.textContent = currentMin + ' - ' + currentMax;
           } else {
-            el.textContent = val + suffix;
+            el.textContent = Math.round(target * ease) + suffix;
           }
           if (progress < 1) requestAnimationFrame(step);
         }
