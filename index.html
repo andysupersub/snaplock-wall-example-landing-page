@@ -484,143 +484,154 @@
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
       align-items: stretch;
       margin-top: 56px;
     }
     .pricing-card {
       background: var(--white);
-      border-radius: 18px;
-      padding: 36px 32px;
+      border-radius: 24px;
+      padding: 44px 40px;
       border: 1.5px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 0;
-      transition: box-shadow 0.2s, border-color 0.2s;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
     }
     .pricing-card:hover {
-      box-shadow: 0 8px 32px rgba(1,22,72,0.10);
-      border-color: rgba(39,108,233,0.3);
+      box-shadow: 0 16px 48px rgba(1,22,72,0.12);
+      transform: translateY(-4px);
+      border-color: rgba(39,108,233,0.25);
     }
     .pricing-card.featured {
       border-color: var(--blue);
       border-width: 2px;
-      box-shadow: 0 8px 40px rgba(39,108,233,0.13);
+      box-shadow: 0 12px 48px rgba(39,108,233,0.15);
+    }
+    .pricing-card.featured:hover {
+      box-shadow: 0 20px 60px rgba(39,108,233,0.22);
     }
     .pricing-card-tag {
       display: inline-block;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--blue);
-      background: rgba(39,108,233,0.09);
+      background: rgba(39,108,233,0.10);
       border-radius: 100px;
-      padding: 4px 12px;
-      margin-bottom: 16px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
       align-self: flex-start;
     }
+    .pricing-card.featured .pricing-card-tag {
+      background: var(--blue);
+      color: white;
+    }
     .pricing-card h3 {
-      font-size: 20px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 6px;
-      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
     }
     .pricing-card-desc {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 300;
       color: var(--grey);
-      line-height: 1.6;
-      margin-bottom: 24px;
+      line-height: 1.65;
+      margin-bottom: 28px;
     }
     .pricing-amount {
-      font-size: 44px;
+      font-size: 56px;
       font-weight: 700;
       letter-spacing: -0.05em;
       color: var(--navy);
       line-height: 1;
     }
     .pricing-unit {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
       color: var(--grey);
-      margin-bottom: 20px;
-      margin-top: 4px;
+      margin-bottom: 24px;
+      margin-top: 6px;
     }
     .pricing-bestfor {
       background: rgba(39,108,233,0.07);
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 13px;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
       font-weight: 400;
       color: var(--blue);
-      line-height: 1.5;
-      margin-bottom: 22px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+      border-left: 3px solid rgba(39,108,233,0.3);
     }
-    .pricing-rows { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; flex: 1; }
+    .pricing-rows { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; flex: 1; }
     .pricing-row {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      padding: 9px 0;
+      gap: 12px;
+      padding: 11px 0;
       border-bottom: 1px solid var(--border);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 300;
       color: #374151;
       line-height: 1.5;
     }
     .pricing-row:last-child { border-bottom: none; }
-    .pricing-row .check { color: var(--blue); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .pricing-row .check { color: var(--blue); font-size: 15px; flex-shrink: 0; margin-top: 2px; font-weight: 600; }
     .pricing-cta {
       display: block;
       width: 100%;
       text-align: center;
-      padding: 13px 0;
+      padding: 16px 0;
       border-radius: 100px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.15s;
       margin-top: auto;
       cursor: pointer;
       border: none;
+      letter-spacing: -0.01em;
     }
     .pricing-cta-outline {
       background: var(--mist);
       color: var(--navy);
       border: 1.5px solid var(--border);
     }
-    .pricing-cta-outline:hover { background: #e3e8f5; }
+    .pricing-cta-outline:hover { background: #dde5f5; transform: translateY(-1px); }
     .pricing-cta-solid {
       background: var(--blue);
       color: var(--white);
     }
-    .pricing-cta-solid:hover { opacity: 0.88; transform: translateY(-1px); }
+    .pricing-cta-solid:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(39,108,233,0.35); }
     .pricing-divider {
       height: 1px;
       background: var(--border);
-      margin: 20px 0;
+      margin: 24px 0;
     }
-    .pricing-panel-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    .pricing-panel-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
     .pricing-panel-table th {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--grey);
-      padding: 0 0 8px;
+      padding: 0 0 10px;
       text-align: left;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
     }
     .pricing-panel-table td {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 300;
       color: var(--navy);
-      padding: 9px 0;
+      padding: 11px 0;
       border-bottom: 1px solid var(--border);
     }
-    .pricing-panel-table td:last-child { text-align: right; font-weight: 500; }
+    .pricing-panel-table td:last-child { text-align: right; font-weight: 600; color: var(--navy); }
     .pricing-panel-table tr:last-child td { border-bottom: none; }
     .check { color: var(--blue); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
@@ -1411,62 +1422,69 @@
       </div>
 
       <!-- ESTIMATOR CARD -->
-      <div class="fade-up" style="background:var(--navy); border-radius:18px; padding:48px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+      <div class="fade-up" style="background:var(--navy); border-radius:28px; padding:56px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-top:24px; position:relative; overflow:hidden;">
+
+        <!-- subtle background glow -->
+        <div style="position:absolute; top:-80px; right:-80px; width:320px; height:320px; border-radius:50%; background:rgba(39,108,233,0.15); filter:blur(60px); pointer-events:none;"></div>
 
         <!-- LEFT: inputs -->
-        <div>
-          <p style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:10px;">Quick Estimator</p>
-          <h3 style="font-size:26px; font-weight:700; letter-spacing:-0.04em; color:white; margin-bottom:6px; line-height:1.2;">How much will your<br>project cost?</h3>
-          <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.55); margin-bottom:32px; line-height:1.6;">Enter your wall dimensions and we'll estimate the panel cost for both sides +GST.</p>
+        <div style="position:relative;">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:12px;">Quick Estimator</p>
+          <h3 style="font-size:34px; font-weight:700; letter-spacing:-0.04em; color:white; margin-bottom:12px; line-height:1.15;">How much will your<br>project cost?</h3>
+          <p style="font-size:16px; font-weight:300; color:rgba(255,255,255,0.55); margin-bottom:36px; line-height:1.65;">Enter your wall dimensions and we'll estimate the panel cost for both sides +GST.</p>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
             <div>
-              <label style="display:block; font-size:11px; font-weight:600; color:rgba(255,255,255,0.45); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Wall Height (m)</label>
-              <select id="est-height" onchange="calcEstimate()" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:10px; color:white; font-size:15px; font-family:'Inter',sans-serif; font-weight:400; outline:none; cursor:pointer;">
-                <option value="2.4">2.4m (Snapwall 2.4)</option>
-                <option value="3.6">3.6m (Snapwall 3.6)</option>
-                <option value="4.0">4.0m (Snapwall 4)</option>
+              <label style="display:block; font-size:11px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;">Wall Height</label>
+              <select id="est-height" onchange="calcEstimate()" style="width:100%; padding:14px 16px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:12px; color:white; font-size:16px; font-family:'Inter',sans-serif; font-weight:400; outline:none; cursor:pointer; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(39,108,233,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                <option value="2.4">2.4m — Snapwall 2.4</option>
+                <option value="3.6">3.6m — Snapwall 3.6</option>
+                <option value="4.0">4.0m — Snapwall 4</option>
               </select>
             </div>
             <div>
-              <label style="display:block; font-size:11px; font-weight:600; color:rgba(255,255,255,0.45); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Wall Length (m)</label>
-              <input id="est-length" type="number" min="1" max="200" value="6" oninput="calcEstimate()" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:10px; color:white; font-size:15px; font-family:'Inter',sans-serif; font-weight:400; outline:none;" placeholder="e.g. 6"/>
+              <label style="display:block; font-size:11px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;">Wall Length (m)</label>
+              <input id="est-length" type="number" min="1" max="200" value="6" oninput="calcEstimate()" style="width:100%; padding:14px 16px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-radius:12px; color:white; font-size:16px; font-family:'Inter',sans-serif; font-weight:400; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(39,108,233,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" placeholder="e.g. 6"/>
             </div>
           </div>
 
           <!-- Acoustic toggle -->
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
-            <div id="est-toggle" onclick="toggleAcoustic()" style="width:48px; height:26px; border-radius:100px; background:rgba(255,255,255,0.15); cursor:pointer; position:relative; transition:background 0.25s; flex-shrink:0;">
-              <div id="est-knob" style="position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:white; transition:left 0.25s;"></div>
+          <div style="display:flex; align-items:center; gap:16px; padding:16px 20px; background:rgba(255,255,255,0.05); border-radius:14px; border:1px solid rgba(255,255,255,0.08); cursor:pointer;" onclick="toggleAcoustic()">
+            <div id="est-toggle" style="width:52px; height:28px; border-radius:100px; background:rgba(255,255,255,0.15); position:relative; transition:background 0.25s; flex-shrink:0;">
+              <div id="est-knob" style="position:absolute; top:4px; left:4px; width:20px; height:20px; border-radius:50%; background:white; transition:left 0.25s; box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>
             </div>
-            <span style="font-size:14px; font-weight:400; color:rgba(255,255,255,0.75);">Acoustic panels <span id="est-acoustic-label" style="color:rgba(255,255,255,0.4); font-weight:300;">(off)</span></span>
+            <div>
+              <div style="font-size:15px; font-weight:500; color:white; line-height:1.2;">Acoustic panels</div>
+              <div id="est-acoustic-label" style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.4); margin-top:2px;">Toggle on for acoustic pricing</div>
+            </div>
           </div>
-          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.35); margin-bottom:0;">Price shown is for both sides of the wall, panels only +GST. Excludes delivery & labour.</p>
+
+          <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.3); margin-top:16px; line-height:1.6;">Panels only +GST. Excludes delivery, labour & accessories.</p>
         </div>
 
         <!-- RIGHT: result -->
-        <div style="background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.10); border-radius:14px; padding:36px; text-align:center;">
-          <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px;">Estimated Cost (Both Sides)</p>
+        <div style="background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:22px; padding:44px 40px; text-align:center; position:relative;">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:20px;">Estimated Cost · Both Sides</p>
 
-          <div id="est-price" style="font-size:56px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1; margin-bottom:4px;">$4,458</div>
-          <div id="est-price-gst" style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.45); margin-bottom:28px;">+GST · approx. $5,127 inc GST</div>
+          <div id="est-price" style="font-size:68px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1; margin-bottom:6px; transition:opacity 0.15s;">$4,458</div>
+          <div id="est-price-gst" style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.45); margin-bottom:32px;">+GST · approx. $5,127 inc GST</div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:28px;">
-            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
-              <div id="est-panels" style="font-size:22px; font-weight:700; color:white; line-height:1;">10</div>
-              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Panels</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:32px;">
+            <div style="background:rgba(255,255,255,0.07); border-radius:14px; padding:18px 10px;">
+              <div id="est-panels" style="font-size:28px; font-weight:700; color:white; line-height:1;">10</div>
+              <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.4); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em;">Panels</div>
             </div>
-            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
-              <div id="est-height-disp" style="font-size:22px; font-weight:700; color:white; line-height:1;">2.4m</div>
-              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Height</div>
+            <div style="background:rgba(255,255,255,0.07); border-radius:14px; padding:18px 10px;">
+              <div id="est-height-disp" style="font-size:28px; font-weight:700; color:white; line-height:1;">2.4m</div>
+              <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.4); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em;">Height</div>
             </div>
-            <div style="background:rgba(255,255,255,0.07); border-radius:10px; padding:14px 10px; text-align:center;">
-              <div id="est-type-disp" style="font-size:14px; font-weight:700; color:white; line-height:1; padding-top:4px;">Basic</div>
-              <div style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;">Type</div>
+            <div style="background:rgba(255,255,255,0.07); border-radius:14px; padding:18px 10px;">
+              <div id="est-type-disp" style="font-size:18px; font-weight:700; color:white; line-height:1; padding-top:4px;">Basic</div>
+              <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.4); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em;">Type</div>
             </div>
           </div>
 
-          <a href="#contact" style="display:block; background:var(--blue); color:white; text-decoration:none; padding:13px 0; border-radius:100px; font-size:14px; font-weight:600; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Get Exact Quote →</a>
+          <a href="#contact" style="display:block; background:var(--blue); color:white; text-decoration:none; padding:16px 0; border-radius:100px; font-size:15px; font-weight:600; transition:opacity 0.2s, transform 0.15s; letter-spacing:-0.01em;" onmouseover="this.style.opacity='0.85';this.style.transform='translateY(-2px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">Get Exact Quote →</a>
         </div>
 
       </div>
@@ -1492,9 +1510,9 @@
       var knob   = document.getElementById('est-knob');
       var label  = document.getElementById('est-acoustic-label');
       toggle.style.background = acousticOn ? '#276ce9' : 'rgba(255,255,255,0.15)';
-      knob.style.left = acousticOn ? '25px' : '3px';
-      label.textContent = acousticOn ? '(on)' : '(off)';
-      label.style.color = acousticOn ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.4)';
+      knob.style.left = acousticOn ? '28px' : '4px';
+      label.textContent = acousticOn ? 'Acoustic pricing applied' : 'Toggle on for acoustic pricing';
+      label.style.color = acousticOn ? 'rgba(39,108,233,0.9)' : 'rgba(255,255,255,0.4)';
       calcEstimate();
     }
 
