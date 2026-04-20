@@ -31,7 +31,8 @@
 
     /* ── NAV ── */
     nav {
-      background: var(--navy);
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -48,12 +49,6 @@
       text-decoration: none;
     }
     .nav-logo svg { height: 32px; width: auto; }
-    .nav-logo span {
-      color: var(--white);
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: -0.03em;
-    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -61,13 +56,14 @@
       list-style: none;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.72);
+      color: var(--navy);
       text-decoration: none;
       font-size: 14px;
       font-weight: 400;
       transition: color 0.2s;
+      opacity: 0.7;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { opacity: 1; }
     .nav-cta {
       background: var(--blue);
       color: var(--white) !important;
@@ -75,30 +71,40 @@
       border-radius: 7px;
       font-weight: 500 !important;
       font-size: 14px !important;
+      opacity: 1 !important;
       transition: opacity 0.2s !important;
     }
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { opacity: 0.85 !important; }
 
     /* ── HERO ── */
     .hero {
-      background: var(--navy);
-      min-height: 92vh;
+      min-height: 88vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       position: relative;
       overflow: hidden;
-      padding: 80px 5% 80px;
+      padding: 0 5% 72px;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80') center/cover no-repeat;
-      opacity: 0.18;
+      background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85') center/cover no-repeat;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(1,22,72,0.25) 0%,
+        rgba(1,22,72,0.55) 60%,
+        rgba(1,22,72,0.80) 100%
+      );
     }
     .hero-inner {
       position: relative;
-      max-width: 760px;
+      max-width: 680px;
       z-index: 1;
     }
     @keyframes pulse {
@@ -106,57 +112,56 @@
       50% { opacity: 0.4; transform: scale(1.3); }
     }
     .hero h1 {
-      font-size: clamp(52px, 7.5vw, 88px);
+      font-size: clamp(38px, 5.5vw, 64px);
       font-weight: 700;
-      line-height: 1.0;
+      line-height: 1.05;
       letter-spacing: -0.04em;
       color: var(--white);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .hero-sub-headline {
-      font-size: clamp(18px, 2.5vw, 26px);
+      font-size: clamp(15px, 2vw, 20px);
       font-weight: 400;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 20px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 18px;
+      display: none;
     }
     .hero p {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 300;
       line-height: 1.7;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.78);
       max-width: 520px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
+    }
+    .hero p strong {
+      color: var(--white);
+      font-weight: 500;
     }
     .hero-proof {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 36px;
+      gap: 12px;
+      margin-bottom: 32px;
     }
     .hero-proof-avatars {
       display: flex;
     }
-    .hero-proof-avatars span {
-      width: 32px; height: 32px;
+    .hero-proof-avatars img {
+      width: 34px; height: 34px;
       border-radius: 50%;
-      border: 2px solid var(--navy);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px;
-      margin-left: -8px;
-      background: var(--blue);
-      color: var(--white);
-      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.5);
+      margin-left: -9px;
+      object-fit: cover;
     }
-    .hero-proof-avatars span:first-child { margin-left: 0; background: #3b82f6; }
-    .hero-proof-avatars span:nth-child(2) { background: #6366f1; }
-    .hero-proof-avatars span:nth-child(3) { background: #0ea5e9; }
+    .hero-proof-avatars img:first-child { margin-left: 0; }
     .hero-proof-text {
       font-size: 13px;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.4;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.45;
     }
     .hero-proof-text strong {
       color: var(--white);
@@ -165,13 +170,13 @@
     .hero-ctas {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-start;
     }
     .btn-hero {
       background: var(--blue);
       color: var(--white);
-      padding: 18px 36px;
+      padding: 17px 32px;
       border-radius: 7px;
       font-size: 16px;
       font-weight: 600;
@@ -189,7 +194,6 @@
       font-size: 12px;
       font-weight: 300;
       color: rgba(255,255,255,0.45);
-      letter-spacing: 0;
     }
     .btn-primary {
       background: var(--blue);
@@ -826,8 +830,8 @@
       <svg viewBox="0 0 140 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="28" height="28" x="0" y="4" rx="4" fill="#276ce9"/>
         <rect width="14" height="14" x="7" y="11" rx="2" fill="white" opacity="0.9"/>
-        <text x="36" y="26" font-family="Inter,sans-serif" font-weight="600" font-size="17" fill="white" letter-spacing="-0.5">SNAPLOCK</text>
-        <text x="36" y="36" font-family="Inter,sans-serif" font-weight="200" font-size="10" fill="rgba(255,255,255,0.6)" letter-spacing="2">WALLS</text>
+        <text x="36" y="26" font-family="Inter,sans-serif" font-weight="600" font-size="17" fill="#011648" letter-spacing="-0.5">SNAPLOCK</text>
+        <text x="36" y="36" font-family="Inter,sans-serif" font-weight="200" font-size="10" fill="rgba(1,22,72,0.45)" letter-spacing="2">WALLS</text>
       </svg>
     </a>
     <ul class="nav-links">
@@ -842,21 +846,22 @@
   <section class="hero">
     <div class="hero-inner">
       <h1>Just Install and Go!</h1>
-      <p class="hero-sub-headline">Stop Waiting Weeks for Your Walls to Be Done.</p>
-      <p>Snaplock Walls are pre-finished modular panels installed by a single crew in 2–3 days. Over 50% lower build cost than traditional GIB® — with zero plastering, sanding, or painting required.</p>
+      <p>Pre-finished modular wall panels that <strong>a single crew installs in 2–3 days</strong> — cutting your build cost by over 50% compared to traditional GIB®. No plastering, no sanding, no finishing trades. Ever.</p>
 
       <div class="hero-proof">
         <div class="hero-proof-avatars">
-          <span>C</span><span>J</span><span>M</span>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Customer"/>
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Customer"/>
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Customer"/>
         </div>
         <div class="hero-proof-text">
-          <strong>Trusted by 100+ NZ builders & homeowners</strong><br>
+          <strong>100+ NZ builders & homeowners trust Snaplock</strong><br>
           "Fantastic product, fantastic people — a really fantastic experience." — Jonathan S.
         </div>
       </div>
 
       <div class="hero-ctas">
-        <a href="#contact" class="btn-hero">Get a Free Quote — From $386/m² installed →</a>
+        <a href="#contact" class="btn-hero">Build Faster Now · From $386/m² →</a>
         <span class="btn-hero-note">No commitment · Reply within 24 hours · NZ-wide delivery</span>
       </div>
     </div>
@@ -888,7 +893,15 @@
     </div>
   </div>
 
-  <!-- TRUST BAR -->
+  <!-- STOP WAITING HIGHLIGHT BANNER -->
+  <div style="background:var(--navy); padding:72px 5%; text-align:center;">
+    <div style="max-width:720px; margin:0 auto;">
+      <p style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#7aaeff; margin-bottom:14px;">Sound familiar?</p>
+      <h2 style="font-size:clamp(30px,4.5vw,52px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--white); margin-bottom:18px;">Stop Waiting Weeks<br>for Your Walls to Be Done.</h2>
+      <p style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.58); max-width:540px; margin:0 auto 36px;">Traditional GIB® requires up to 9 site visits and multiple trades. Snaplock replaces all of that — one crew, one visit, done in 2–3 days and ready for handover.</p>
+      <a href="#contact" class="btn-hero">Build Faster Now · From $386/m² →</a>
+    </div>
+  </div>
   <div class="trust-bar">
     <div class="trust-item">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
