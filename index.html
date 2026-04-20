@@ -880,20 +880,23 @@
     }
 
     /* ── COMPARE + APPS ANIMATIONS ── */
-    .compare-anim, .app-anim {
+    .compare-anim {
       opacity: 0;
-      transform: translateY(36px);
-      transition: none;
+      transform: translateY(32px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
     }
     .compare-anim.ca-visible {
-      animation: caFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .app-anim {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 1.1s cubic-bezier(0.22,1,0.36,1), transform 1.1s cubic-bezier(0.22,1,0.36,1);
     }
     .app-anim.app-visible {
-      animation: caFadeUp 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes caFadeUp {
-      from { opacity: 0; transform: translateY(36px); }
-      to   { opacity: 1; transform: translateY(0); }
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -1542,7 +1545,7 @@
       }, { threshold: 0.1 });
       items.forEach(el => obs.observe(el));
     })();
-    // Apps section observer — trigger all at once, stagger via animation-delay
+    // Apps section observer — stagger via transitionDelay (same approach as hero)
     (function() {
       const items = document.querySelectorAll('.app-anim');
       let triggered = false;
@@ -1552,7 +1555,7 @@
             triggered = true;
             items.forEach(el => {
               const delay = el.style.animationDelay || '0s';
-              el.style.animationDelay = delay;
+              el.style.transitionDelay = delay;
               el.classList.add('app-visible');
             });
             obs.disconnect();
