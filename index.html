@@ -101,56 +101,95 @@
       max-width: 760px;
       z-index: 1;
     }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(39,108,233,0.20);
-      border: 1px solid rgba(39,108,233,0.40);
-      color: #7aaeff;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: #7aaeff;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(1.3); }
     }
     .hero h1 {
-      font-size: clamp(38px, 5.5vw, 62px);
-      font-weight: 500;
-      line-height: 1.08;
+      font-size: clamp(52px, 7.5vw, 88px);
+      font-weight: 700;
+      line-height: 1.0;
       letter-spacing: -0.04em;
       color: var(--white);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--blue);
+    .hero-sub-headline {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
     }
     .hero p {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 300;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.72);
-      max-width: 560px;
-      margin-bottom: 40px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .hero-proof-avatars {
+      display: flex;
+    }
+    .hero-proof-avatars span {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      margin-left: -8px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 600;
+    }
+    .hero-proof-avatars span:first-child { margin-left: 0; background: #3b82f6; }
+    .hero-proof-avatars span:nth-child(2) { background: #6366f1; }
+    .hero-proof-avatars span:nth-child(3) { background: #0ea5e9; }
+    .hero-proof-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+    }
+    .hero-proof-text strong {
+      color: var(--white);
+      font-weight: 500;
     }
     .hero-ctas {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .btn-hero {
+      background: var(--blue);
+      color: var(--white);
+      padding: 18px 36px;
+      border-radius: 7px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-hero:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-hero-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0;
     }
     .btn-primary {
       background: var(--blue);
@@ -187,31 +226,65 @@
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
 
-    .hero-stats {
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── STATS BAR (white, below hero) ── */
+    .stats-bar {
+      background: var(--white);
+      padding: 56px 5%;
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
-      gap: 40px;
-      margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
       flex-wrap: wrap;
     }
-    .hero-stat {}
-    .hero-stat-num {
-      font-size: 36px;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.04em;
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-item + .stat-item {
+      border-left: 1px solid var(--border);
+    }
+    .stat-num {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       line-height: 1;
+      color: var(--navy);
+      margin-bottom: 6px;
     }
-    .hero-stat-num span { color: var(--blue); }
-    .hero-stat-label {
+    .stat-num span { color: var(--blue); }
+    .stat-label {
       font-size: 13px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      margin-top: 5px;
+      font-weight: 400;
+      color: var(--grey);
+      line-height: 1.4;
     }
-
-    /* ── TRUST BAR ── */
     .trust-bar {
       background: var(--mist);
       padding: 20px 5%;
@@ -768,33 +841,52 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-badge">Made in Cambridge, NZ · LBP Approved</div>
-      <h1>Stop Waiting Weeks<br>for Your Walls<br>to <em>Be Done.</em></h1>
-      <p>Snaplock Walls are pre-finished, modular wall panels that install in days — not weeks. No plastering, no sanding, no waiting on finishing trades. Just install and go.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get a Free Quote →</a>
-        <a href="#features" class="btn-outline">See How It Works</a>
+      <h1>Just Install<br>and Go.</h1>
+      <p class="hero-sub-headline">Stop Waiting Weeks for Your Walls to Be Done.</p>
+      <p>Snaplock Walls are pre-finished modular panels installed by a single crew in 2–3 days. Over 50% lower build cost than traditional GIB® — with zero plastering, sanding, or painting required.</p>
+
+      <div class="hero-proof">
+        <div class="hero-proof-avatars">
+          <span>C</span><span>J</span><span>M</span>
+        </div>
+        <div class="hero-proof-text">
+          <strong>Trusted by 100+ NZ builders & homeowners</strong><br>
+          "Fantastic product, fantastic people — a really fantastic experience." — Jonathan S.
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num"><span>67</span>%</div>
-          <div class="hero-stat-label">Faster than GIB®</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><span>50</span>%</div>
-          <div class="hero-stat-label">Lower total build cost</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><span>2–3</span></div>
-          <div class="hero-stat-label">Days to complete install</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">$<span>386</span></div>
-          <div class="hero-stat-label">Per m² installed</div>
-        </div>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-hero">Get a Free Quote — From $386/m² installed →</a>
+        <span class="btn-hero-note">No commitment · Reply within 24 hours · NZ-wide delivery</span>
       </div>
     </div>
   </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <div class="stat-num"><span>67</span>%</div>
+        <div class="stat-label">Faster than GIB®</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>50</span>%+</div>
+        <div class="stat-label">Lower total build cost</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2–3</div>
+        <div class="stat-label">Days to full install</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$<span>386</span></div>
+        <div class="stat-label">Per m² fully installed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>100</span>%</div>
+        <div class="stat-label">Reusable & demountable</div>
+      </div>
+    </div>
+  </div>
 
   <!-- TRUST BAR -->
   <div class="trust-bar">
