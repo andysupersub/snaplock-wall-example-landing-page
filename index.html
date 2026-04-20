@@ -937,9 +937,12 @@
           if (range) {
             const maxVal = +el.dataset.range;
             const minVal = +el.dataset.target;
-            const currentMin = Math.round(minVal * ease);
-            const currentMax = Math.round(maxVal * ease);
-            el.textContent = currentMin + ' - ' + currentMax;
+            // Use decimal for small numbers so animation feels full duration
+            const currentMin = (minVal * ease).toFixed(1).replace(/\.0$/, '');
+            const currentMax = (maxVal * ease).toFixed(1).replace(/\.0$/, '');
+            const displayMin = progress < 1 ? currentMin : minVal;
+            const displayMax = progress < 1 ? currentMax : maxVal;
+            el.textContent = displayMin + ' - ' + displayMax;
           } else {
             el.textContent = Math.round(target * ease) + suffix;
           }
