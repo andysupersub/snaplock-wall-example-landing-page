@@ -862,6 +862,22 @@
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+
+    /* ── PAIN SECTION ANIMATIONS ── */
+    .pain-anim {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    .pain-anim.pain-visible {
+      animation: painFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .pain-anim-left.pain-visible  { animation-delay: 0s; }
+    .pain-anim-mid.pain-visible   { animation-delay: 0.2s; }
+    .pain-anim-right.pain-visible { animation-delay: 0.4s; }
+    @keyframes painFadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -1053,7 +1069,7 @@
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; align-items:center;">
 
         <!-- LEFT: Headline + description -->
-        <div>
+        <div class="pain-anim pain-anim-left">
           <div class="section-label" style="color:#011648;">The Problem with Traditional Walls</div>
           <h2 class="section-heading" style="font-weight:800; font-size:clamp(30px,3.8vw,46px);">GIB® takes 7 days<br><span style="color:#276ce9;">We do it in 2 days!</span></h2>
           <p style="font-size:15px; font-weight:300; line-height:1.7; color:var(--grey); margin-top:16px;">Traditional wall systems require up to nine site visits and multiple trades. Snaplock eliminates almost all of that.</p>
@@ -1476,6 +1492,21 @@
         });
       }, { threshold: 0.15 });
       swItems.forEach(el => swObserver.observe(el));
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const painItems = document.querySelectorAll('.pain-anim');
+      const painObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('pain-visible');
+            painObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      painItems.forEach(el => painObserver.observe(el));
     })();
   </script>
 </body>
