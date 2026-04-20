@@ -482,7 +482,7 @@
     /* ── PRICING ANIMATIONS ── */
     .pricing-anim {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(60px);
       transition: opacity 1.4s cubic-bezier(0.22,1,0.36,1), transform 1.4s cubic-bezier(0.22,1,0.36,1);
     }
     .pricing-anim.pricing-visible {
@@ -1852,7 +1852,7 @@
             obs.disconnect();
           }
         });
-      }, { threshold: 0.05 });
+      }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
       if (items.length) obs.observe(items[0]);
     })();
     (function() {
