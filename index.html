@@ -882,16 +882,17 @@
     /* ── COMPARE + APPS ANIMATIONS ── */
     .compare-anim, .app-anim {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(36px);
+      transition: none;
     }
     .compare-anim.ca-visible {
       animation: caFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
     }
     .app-anim.app-visible {
-      animation: caFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+      animation: caFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
     }
     @keyframes caFadeUp {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(36px); }
       to   { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -1095,7 +1096,7 @@
         <div class="pain-anim pain-anim-mid" style="border:none; border-radius:30px; padding:28px 24px; background:linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); box-shadow: 0 4px 24px rgba(220,38,38,0.25); padding:32px 28px; border:3.5px solid rgba(255,200,200,0.60);">
           <p style="font-size:22px; font-weight:700; color:#fff; margin-bottom:22px; letter-spacing:0.01em;">GIB® / Traditional</p>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0;">
-            <li class="pain-anim" style="animation-delay:0.00s; display:flex; align-items:center; gap:12px; font-size:20px; font-weight:300; color:rgba(255,255,255,0.95); padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.15);"><span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;">✕</span>Multiple trades coordinating across weeks</li>
+            <li class="pain-anim" style="animation-delay:0.10s; display:flex; align-items:center; gap:12px; font-size:20px; font-weight:300; color:rgba(255,255,255,0.95); padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.15);"><span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;">✕</span>Multiple trades coordinating across weeks</li>
             <li class="pain-anim" style="animation-delay:0.08s; display:flex; align-items:center; gap:12px; font-size:20px; font-weight:300; color:rgba(255,255,255,0.95); padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.15);"><span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;">✕</span>Stopping, sanding, painting all separate visits</li>
             <li class="pain-anim" style="animation-delay:0.16s; display:flex; align-items:center; gap:12px; font-size:20px; font-weight:300; color:rgba(255,255,255,0.95); padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.15);"><span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;">✕</span>Dust, mess, and constant site disruption</li>
             <li class="pain-anim" style="animation-delay:0.24s; display:flex; align-items:center; gap:12px; font-size:20px; font-weight:300; color:rgba(255,255,255,0.95); padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.15);"><span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;">✕</span>Up to 9 site visits just for internal walls</li>
@@ -1195,7 +1196,7 @@
     <div style="max-width:100%;">
 
       <!-- Header -->
-      <div style="text-align:left; margin-bottom:48px;">
+      <div class="fade-up" style="text-align:left; margin-bottom:48px;">
         <p style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:14px;">Where Snaplock Walls Work</p>
         <h2 style="font-size:clamp(32px,4vw,52px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--navy); margin-bottom:16px;">Built for any space.</h2>
         <p style="font-size:17px; font-weight:300; line-height:1.7; color:var(--grey); max-width:540px;">Snaplock modular panels are used across New Zealand in a wide range of commercial, residential, and industrial applications.</p>
@@ -1211,49 +1212,49 @@
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Homes & New Builds</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.30s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Commercial Fit-Outs & Offices</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.40s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Schools & Education Buildings</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.50s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Healthcare & Aged Care</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.60s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Granny Flats & Dwellings</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.70s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Airbnb & Holiday Homes</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.80s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
           <p style="position:absolute;bottom:24px;left:24px;right:24px;font-size:18px;font-weight:500;color:white;margin:0;line-height:1.3;">Farm & Rural Sheds</p>
         </div>
 
-        <div class="fade-up app-anim" style="animation-delay:0.00s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
+        <div class="fade-up app-anim" style="animation-delay:0.90s; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; cursor:pointer;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.80) 0%,rgba(0,0,0,0.05) 60%);"></div>
           <div class="app-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s;"></div>
@@ -1541,13 +1542,24 @@
       }, { threshold: 0.1 });
       items.forEach(el => obs.observe(el));
     })();
-    // Apps section observer
+    // Apps section observer — trigger all at once, stagger via animation-delay
     (function() {
       const items = document.querySelectorAll('.app-anim');
+      let triggered = false;
       const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('app-visible'); obs.unobserve(e.target); } });
+        entries.forEach(e => {
+          if (e.isIntersecting && !triggered) {
+            triggered = true;
+            items.forEach(el => {
+              const delay = el.style.animationDelay || '0s';
+              el.style.animationDelay = delay;
+              el.classList.add('app-visible');
+            });
+            obs.disconnect();
+          }
+        });
       }, { threshold: 0.05 });
-      items.forEach(el => obs.observe(el));
+      if (items.length) obs.observe(items[0]);
     })();
   </script>
 </body>
