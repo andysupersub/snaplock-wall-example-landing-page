@@ -835,15 +835,15 @@
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
       .pain-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-top: 56px;
-    }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+        margin-top: 56px;
+      }
       .pricing-grid { grid-template-columns: 1fr; }
       .pricing-panel-table { font-size: 12px; }
-      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .cta-inner { grid-template-columns: 1fr !important; gap: 48px; }
       .apps-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
     }
@@ -853,6 +853,280 @@
       .apps-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-stats { gap: 24px; }
+    }
+
+    /* ── iPHONE-OPTIMISED (≤480px) ── */
+    /* Covers: iPhone SE 1/2/3 (375), iPhone 12 mini (360), iPhone 11/X/XS/Pro (375),
+       iPhone 12/13/14/15 (390), iPhone 14 Pro/15 Pro (393), iPhone 11/XR/Pro Max (414),
+       iPhone 12-14 Pro Max (428), iPhone 15/16 Pro Max (430), 6/7/8 Plus (414) */
+    @media (max-width: 480px) {
+      /* Global */
+      body { font-size: 15px; }
+      section { padding: 56px 20px !important; }
+
+      /* Top notice bar */
+      .anim-bar {
+        padding: 12px 16px !important;
+        gap: 8px !important;
+        min-height: 0 !important;
+        text-align: center;
+        line-height: 1.4 !important;
+      }
+      .anim-bar > span:nth-of-type(1) {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
+      }
+      .anim-bar > span:nth-of-type(2) {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+      }
+      .anim-bar > a {
+        font-size: 13px !important;
+      }
+
+      /* NAV */
+      nav { padding: 0 20px; height: 60px; }
+      .nav-logo svg { height: 26px; }
+      .nav-cta { font-size: 12px !important; padding: 8px 14px !important; }
+
+      /* HERO */
+      .hero { min-height: auto; padding: 48px 20px 64px; }
+      .hero-inner { padding: 0; }
+      .hero-inner h1, .hero-inner .hero-headline, .hero h1 {
+        font-size: clamp(34px, 9vw, 44px) !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.03em;
+      }
+      .hero-inner img.anim-logo,
+      .anim-logo {
+        height: 40px !important;
+        margin-bottom: 32px !important;
+      }
+      .hero p, .anim-desc, .hero-sub-headline {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+      }
+      .hero p br, .anim-desc br { display: none; }
+      .hero-proof-text br { display: none; }
+      .hero-proof {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px !important;
+        align-items: center;
+      }
+      .hero-proof-avatars { flex-shrink: 0; }
+      .hero-proof-text { font-size: 13px !important; line-height: 1.45 !important; }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px !important;
+        width: 100%;
+      }
+      .btn-hero, .btn-primary, .btn-outline {
+        width: 100%;
+        text-align: center;
+        font-size: 15px !important;
+        padding: 14px 20px !important;
+        white-space: normal !important;
+      }
+
+      /* STATS BAR */
+      .stats-bar { padding: 32px 20px !important; }
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
+      .stat-num { font-size: 38px !important; }
+      .stat-label { font-size: 13px !important; white-space: normal !important; }
+
+      /* SECTION HEADINGS */
+      .section-heading {
+        font-size: clamp(26px, 7vw, 32px) !important;
+        line-height: 1.15;
+      }
+      .section-sub { font-size: 15px !important; line-height: 1.55; }
+      .section-label { font-size: 10px !important; }
+
+      /* PAIN SECTION */
+      .pain-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+        margin-top: 32px !important;
+      }
+      .pain-side h3 { font-size: 18px !important; }
+      .pain-list li { font-size: 14px !important; }
+
+      /* CARDS */
+      .cards-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .card { padding: 24px !important; }
+      .card-stat { font-size: 22px !important; }
+
+      /* COMPARE TABLE */
+      .compare-wrap {
+        margin-top: 32px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .compare-wrap table { min-width: 520px; }
+
+      /* APPS */
+      .apps-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+      .app-card { padding: 20px !important; }
+
+      /* PRICING */
+      .pricing-section { padding: 56px 20px !important; }
+      .pricing-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .pricing-card { padding: 28px 22px !important; }
+      .pricing-amount { font-size: 48px !important; }
+      .pricing-card-desc { font-size: 14px !important; }
+      .pricing-panel-table { font-size: 11px !important; }
+      .pricing-panel-table th, .pricing-panel-table td { padding: 6px 4px !important; }
+      .pricing-row { font-size: 14px !important; }
+
+      /* HOW IT WORKS */
+      .steps-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .step-num { font-size: 38px !important; }
+      .step h3 { font-size: 17px !important; }
+      .step p { font-size: 14px !important; }
+
+      /* TESTIMONIALS */
+      .testi-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .testi-card { padding: 24px !important; border-radius: 22px !important; }
+      .testi-card p { font-size: 14px !important; line-height: 1.55 !important; }
+      .testi-card .testi-name { font-size: 13px !important; }
+
+      /* CTA SECTION */
+      .cta-section { padding: 56px 20px !important; }
+      .cta-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .cta-left .section-heading {
+        font-size: clamp(38px, 11vw, 52px) !important;
+        line-height: 1.05 !important;
+        margin-bottom: 18px !important;
+      }
+      .cta-left .section-sub { font-size: 15px !important; margin-bottom: 24px !important; }
+      .cta-points li { font-size: 14px !important; line-height: 1.5 !important; }
+
+      /* FORM */
+      .cta-form { padding: 24px 20px !important; border-radius: 24px !important; }
+      .form-row { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .form-group { margin-bottom: 12px !important; }
+      .form-group input, .form-group select, .form-group textarea {
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+      }
+      .form-group textarea {
+        border-radius: 28px !important;
+        min-height: 110px !important;
+      }
+      .form-submit {
+        font-size: 15px !important;
+        padding: 16px !important;
+      }
+
+      /* WALL CALCULATOR (panel type, length, add-wall, exact-quote) */
+      .wall-calc, .calc-row {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .wall-calc input, .wall-calc select, .calc-row input, .calc-row select {
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+        width: 100% !important;
+      }
+
+      /* PROJECT COST ESTIMATOR CARD */
+      .estimator-card {
+        padding: 28px 20px !important;
+        border-radius: 22px !important;
+      }
+      .estimator-top {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        margin-bottom: 28px !important;
+      }
+      .estimator-totals-cell {
+        padding-left: 0 !important;
+        border-left: 0 !important;
+        border-top: 1px solid rgba(255,255,255,0.08) !important;
+        padding-top: 20px !important;
+      }
+      .estimator-top h3 { font-size: 26px !important; }
+      #est-panels, #est-price { font-size: 38px !important; }
+      .estimator-row-header { display: none !important; }
+      #wall-rows > div {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 14px 0 !important;
+      }
+      #wall-rows > div select,
+      #wall-rows > div input {
+        font-size: 14px !important;
+        padding: 12px 14px !important;
+      }
+      #wall-rows > div > *:nth-child(1) { grid-column: 1 / -1; }
+      #wall-rows > div > *:nth-child(4) { grid-column: 1 / -1; text-align: right; }
+      #wall-rows > div > *:nth-child(5) {
+        position: absolute;
+        right: 0;
+        top: 8px;
+      }
+      #wall-rows > div { position: relative; }
+
+      /* STOP WAITING SECTION */
+      .stop-waiting { padding: 56px 20px !important; }
+      .sw-anim h2, h2.sw-anim-1 {
+        font-size: clamp(28px, 8vw, 36px) !important;
+        line-height: 1.1 !important;
+      }
+      .sw-anim h2 br, h2.sw-anim-1 br { display: none; }
+      .sw-anim p, p.sw-anim-2 {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+      }
+      .sw-anim p br, p.sw-anim-2 br { display: none; }
+
+      /* TYPOGRAPHY: prevent any horizontal overflow */
+      h1, h2, h3, h4 { word-wrap: break-word; overflow-wrap: break-word; }
+      img, video, iframe { max-width: 100%; height: auto; }
+    }
+
+    /* ── EXTRA-SMALL iPHONES (≤375px) ── */
+    /* iPhone SE 1/2/3, iPhone 12 mini, iPhone X/XS/11 Pro */
+    @media (max-width: 375px) {
+      section { padding: 48px 16px !important; }
+      nav { padding: 0 16px; }
+      .anim-bar { padding: 10px 12px !important; }
+      .stop-waiting { padding: 48px 16px !important; }
+      .hero { padding: 40px 16px 56px; }
+      .hero-inner h1, .hero-inner .hero-headline, .hero h1 {
+        font-size: clamp(30px, 8.5vw, 38px) !important;
+      }
+      .hero p, .anim-desc, .hero-sub-headline { font-size: 14px !important; }
+      .stat-num { font-size: 34px !important; }
+      .section-heading { font-size: clamp(24px, 7vw, 28px) !important; }
+      .cta-left .section-heading {
+        font-size: clamp(34px, 10vw, 44px) !important;
+      }
+      .pricing-amount { font-size: 42px !important; }
+      .cta-section, .pricing-section { padding: 48px 16px !important; }
+      .cta-form { padding: 20px 16px !important; }
+      .card { padding: 22px !important; }
+      .testi-card { padding: 22px !important; }
+      .estimator-card { padding: 24px 18px !important; }
+      #est-panels, #est-price { font-size: 34px !important; }
+    }
+
+    /* ── ULTRA-SMALL (≤360px) ── */
+    /* iPhone 12 mini effective and any older 320px devices */
+    @media (max-width: 360px) {
+      section { padding: 44px 14px !important; }
+      .hero { padding: 36px 14px 48px; }
+      .hero-inner h1, .hero-inner .hero-headline, .hero h1 {
+        font-size: 28px !important;
+      }
+      .nav-cta { padding: 7px 12px !important; font-size: 11px !important; }
+      .stats-bar-inner { gap: 18px !important; }
+      .stat-num { font-size: 30px !important; }
+      .stat-label { font-size: 12px !important; }
+      .anim-bar > span:nth-of-type(2) { font-size: 11px !important; }
+      .anim-bar > a { font-size: 12px !important; }
     }
 
     /* ── SCROLL ANIMATIONS ── */
@@ -1087,7 +1361,7 @@
   </script>
 
   <!-- STOP WAITING + VIDEO -->
-  <div style="background:var(--navy); padding:80px 5%; text-align:center;">
+  <div class="stop-waiting" style="background:var(--navy); padding:80px 5%; text-align:center;">
     <div style="max-width:900px; margin:0 auto;">
       <h2 class="sw-anim sw-anim-1" style="font-size:clamp(32px,4.5vw,56px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--white); margin-bottom:20px;">Stop Waiting Weeks<br>for Your Walls to Be Done!</h2>
       <p class="sw-anim sw-anim-2" style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.58); margin:0 auto 40px;">Traditional GIB® requires up to 9 site visits and multiple trades. Snaplock replaces all of that!<br>One crew, one visit, done in 2–3 days.</p>
@@ -1644,23 +1918,23 @@
       </div>
 
       <!-- ESTIMATOR CARD -->
-      <div class="fade-up" style="margin-top:56px; background:var(--navy); border-radius:24px; padding:56px 56px 48px; position:relative; overflow:hidden;">
+      <div class="fade-up estimator-card" style="margin-top:56px; background:var(--navy); border-radius:24px; padding:56px 56px 48px; position:relative; overflow:hidden;">
 
         <!-- Top: title + totals -->
-        <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; align-items:end; margin-bottom:48px;">
+        <div class="estimator-top" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; align-items:end; margin-bottom:48px;">
           <!-- LEFT: Title -->
           <div>
             <p style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:16px;">Project Cost Calculator</p>
             <h3 style="font-size:clamp(30px,3.4vw,46px); font-weight:700; letter-spacing:-0.04em; color:white; line-height:1.05; margin:0;">Know your cost before you call.</h3>
           </div>
           <!-- MIDDLE: Total Panels Needed -->
-          <div style="padding-left:32px; border-left:1px solid rgba(255,255,255,0.1);">
+          <div class="estimator-totals-cell" style="padding-left:32px; border-left:1px solid rgba(255,255,255,0.1);">
             <p style="font-size:11px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:10px;">Total Panels Needed</p>
             <div id="est-panels" style="font-size:52px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1;">12</div>
             <div style="font-size:14px; color:rgba(255,255,255,0.35); margin-top:6px;">both sides of all walls</div>
           </div>
           <!-- RIGHT: Total Cost -->
-          <div style="padding-left:32px; border-left:1px solid rgba(255,255,255,0.1);">
+          <div class="estimator-totals-cell" style="padding-left:32px; border-left:1px solid rgba(255,255,255,0.1);">
             <p style="font-size:11px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:10px;">Total Cost</p>
             <div id="est-price" style="font-size:52px; font-weight:700; letter-spacing:-0.05em; color:white; line-height:1;">$3,000</div>
             <div id="est-price-gst" style="font-size:14px; color:rgba(255,255,255,0.35); margin-top:6px;">approx. $3,450 inc GST</div>
@@ -1669,7 +1943,7 @@
 
         <!-- Wall rows table -->
         <div style="margin-bottom:12px;">
-          <div style="display:grid; grid-template-columns:2fr 1.2fr 1fr 1fr 36px; gap:12px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.08);">
+          <div class="estimator-row-header" style="display:grid; grid-template-columns:2fr 1.2fr 1fr 1fr 36px; gap:12px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.08);">
             <p style="font-size:11px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Panel Type (wall height)</p>
             <p style="font-size:11px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Wall Length (m)</p>
             <p style="font-size:11px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Acoustic?</p>
