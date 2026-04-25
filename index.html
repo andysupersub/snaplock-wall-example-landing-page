@@ -1308,18 +1308,18 @@
   </section>
 
   <!-- APPLICATIONS -->
-  <section style="background:var(--white); padding:96px 0 96px 5%;" id="applications">
+  <section style="background:var(--white); padding:96px 0;" id="applications">
     <div style="max-width:100%;">
 
       <!-- Header -->
-      <div class="fade-up" style="text-align:left; margin-bottom:48px; padding-right:5%;">
+      <div class="fade-up" style="text-align:left; margin-bottom:48px; padding-left:5%; padding-right:5%;">
         <p style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:14px;">Where Snaplock Walls Work</p>
         <h2 style="font-size:clamp(32px,4vw,52px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--navy); margin-bottom:16px;">Built for any space.</h2>
         <p style="font-size:17px; font-weight:300; line-height:1.7; color:var(--grey); max-width:540px;">Snaplock modular panels are used across New Zealand in a wide range of commercial, residential, and industrial applications.</p>
       </div>
 
       <!-- Drag-to-scroll slider -->
-      <div id="app-slider" style="display:flex; gap:16px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:8px; padding-right:5%; scroll-behavior:auto;">
+      <div id="app-slider" style="display:flex; gap:16px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:8px; padding-left:5%; padding-right:5%; scroll-behavior:auto;">
 
         <div style="scroll-snap-align:start; flex-shrink:0; width:480px; border-radius:16px; overflow:hidden; position:relative; aspect-ratio:4/3;" onmouseover="this.querySelector('.app-overlay').style.opacity='1'" onmouseout="this.querySelector('.app-overlay').style.opacity='0'">
           <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
@@ -1385,45 +1385,56 @@
       </style>
       <script>
         (function() {
-          var slider, autoId, paused = false, pos = 0, SPEED = 0.5;
-
           function init() {
-            slider = document.getElementById('app-slider');
+            var slider = document.getElementById('app-slider');
             if (!slider) return;
-
-            // Auto-scroll: move by SPEED px per frame, loop seamlessly
-            function tick() {
-              if (!paused) {
-                pos += SPEED;
-                // When we've scrolled past halfway (content duplicated), reset to start
-                if (pos >= slider.scrollWidth / 2) pos = 0;
-                slider.scrollLeft = pos;
-              }
-              autoId = requestAnimationFrame(tick);
-            }
-
-            // Pause on hover/touch, resume on leave
-            slider.addEventListener('mouseenter', function() { paused = true; });
-            slider.addEventListener('mouseleave', function() {
-              paused = false;
-              pos = slider.scrollLeft;
-            });
-            slider.addEventListener('touchstart', function() { paused = true; }, {passive:true});
-            slider.addEventListener('touchend', function() {
-              paused = false;
-              pos = slider.scrollLeft;
-            });
-
-            // Keep pos in sync when user manually scrolls (trackpad two-finger)
-            slider.addEventListener('scroll', function() {
-              if (paused) pos = slider.scrollLeft;
-            }, {passive:true});
 
             // Duplicate cards for seamless loop
             var origChildren = Array.from(slider.children);
             origChildren.forEach(function(c) {
               slider.appendChild(c.cloneNode(true));
             });
+
+            var halfW = slider.scrollWidth / 2;
+            // Start exactly at the beginning of the first set (no cut)
+            slider.scrollLeft = 0;
+
+            var pos = 0;
+            var paused = false;
+            var SPEED = 0.6;
+            var userScrolling = false;
+            var userScrollTimer;
+
+            function tick() {
+              if (!paused && !userScrolling) {
+                pos += SPEED;
+                // Seamless loop: jump back by exactly one set width
+                if (pos >= halfW) pos -= halfW;
+                slider.scrollLeft = pos;
+              }
+              requestAnimationFrame(tick);
+            }
+
+            // Pause auto-scroll while mouse is over slider
+            slider.addEventListener('mouseenter', function() { paused = true; });
+            slider.addEventListener('mouseleave', function() {
+              paused = false;
+              pos = slider.scrollLeft % halfW;
+            });
+
+            // Detect user scrolling (trackpad, touch) — pause briefly then sync
+            slider.addEventListener('scroll', function() {
+              if (paused) return; // hovering, ignore
+              userScrolling = true;
+              clearTimeout(userScrollTimer);
+              userScrollTimer = setTimeout(function() {
+                userScrolling = false;
+                // Sync pos to current scroll, normalized to first set
+                pos = slider.scrollLeft % halfW;
+                // Make sure we're in the first set so loop works
+                slider.scrollLeft = pos;
+              }, 150);
+            }, {passive: true});
 
             tick();
           }
