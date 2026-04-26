@@ -1216,6 +1216,139 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+
+    @media (max-width: 480px) {
+      .applications-section { padding: 56px 0 !important; }
+      .applications-section .fade-up { padding-left: 20px !important; padding-right: 20px !important; margin-bottom: 32px !important; }
+      .install-header { margin-bottom: 40px !important; }
+      /* Comparison section padding */
+      section[style*="background:#F0F4FD"] { padding: 56px 20px !important; }
+      /* Reduce font sizes in comparison table */
+      .compare-inner > div > div { padding: 14px 12px !important; font-size: 14px !important; }
+      .compare-inner > div { min-width: 420px !important; }
+      /* Pain section padding fix */
+      .pain-section { padding-top: 56px !important; padding-bottom: 56px !important; }
+    }
+
+    /* ── MOBILE FIXES: inline-grid overrides ── */
+    @media (max-width: 768px) {
+      /* Pain section: stack 3 cols to 1 */
+      .pain-inner-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+
+      /* Pricing top row: stack 3 cols to 1 */
+      .pricing-top-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        margin-bottom: 16px !important;
+      }
+
+      /* Installation steps: 2-col on tablet */
+      .install-steps-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* Installation heading: allow wrap */
+      .install-heading {
+        white-space: normal !important;
+        font-size: clamp(28px, 7vw, 44px) !important;
+      }
+
+      /* Comparison table: allow scroll on mobile */
+      .compare-inner {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .compare-inner > div {
+        min-width: 560px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Pain section */
+      .pain-inner-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 0 !important;
+      }
+      .pain-inner-grid > div:first-child {
+        /* headline div */
+        margin-bottom: 4px !important;
+      }
+
+      /* Pain cards: reduce font size */
+      .pain-anim-mid li,
+      .pain-anim-right li {
+        font-size: 15px !important;
+        padding: 9px 0 !important;
+      }
+      .pain-anim-mid p,
+      .pain-anim-right p {
+        font-size: 16px !important;
+        margin-bottom: 14px !important;
+      }
+      .pain-anim-mid,
+      .pain-anim-right {
+        padding: 22px 18px !important;
+        border-radius: 20px !important;
+      }
+
+      /* Comparison table: scroll on mobile */
+      .compare-inner {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .compare-inner > div {
+        min-width: 500px;
+      }
+      /* Wrap the compare section padding to not clip scroll */
+      .compare-inner {
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+        border-radius: 0 !important;
+      }
+
+      /* Installation steps: 1 col on mobile */
+      .install-steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .install-steps-grid > div {
+        display: grid !important;
+        grid-template-columns: auto 1fr !important;
+        gap: 16px !important;
+        align-items: start !important;
+      }
+      .install-steps-grid > div > div:first-child {
+        /* image */
+        width: 80px !important;
+        aspect-ratio: auto !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
+        margin-bottom: 0 !important;
+        height: 100px !important;
+      }
+      .install-steps-grid > div > div:first-child img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      .install-heading {
+        font-size: clamp(24px, 7vw, 34px) !important;
+        white-space: normal !important;
+      }
+
+      /* Pricing top row */
+      .pricing-top-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1404,7 +1537,7 @@
   <!-- PAIN → SOLUTION -->
   <section class="pain-section" style="padding-left:5%; padding-right:5%;">
     <div style="max-width:100%;">
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; align-items:center;">
+      <div class="pain-inner-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; align-items:center;">
 
         <!-- LEFT: Headline + description -->
         <div class="pain-anim pain-anim-left">
@@ -1450,7 +1583,7 @@
       <h2 class="compare-anim" style="font-size:clamp(32px,4vw,52px); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:var(--navy); margin-bottom:16px; animation-delay:0.15s;">The numbers don't lie.</h2>
       <p style="font-size:20px; font-weight:300; line-height:1.7; color:var(--grey); margin:0 auto 52px; max-width:540px;">Traditional GIB® requires multiple trades and up to nine site visits. Snaplock replaces all of that with a single crew.</p>
 
-      <div class="compare-anim" style="background:var(--white); border:1px solid rgba(1,22,72,0.10); border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(1,22,72,0.08); animation-delay:0.3s;">
+      <div class="compare-anim compare-inner" style="background:var(--white); border:1px solid rgba(1,22,72,0.10); border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(1,22,72,0.08); animation-delay:0.3s;">
 
         <!-- Header -->
         <div style="display:grid; grid-template-columns:1.4fr 1.2fr 1.2fr 1fr; background:#f8f9fb; border-bottom:1px solid rgba(1,22,72,0.08);">
@@ -1513,7 +1646,7 @@
   </section>
 
   <!-- APPLICATIONS -->
-  <section style="background:var(--white); padding:96px 0;" id="applications">
+  <section class="applications-section" style="background:var(--white); padding:96px 0;" id="applications">
     <div>
 
       <div class="fade-up" style="text-align:left; margin-bottom:48px; padding-left:5%; padding-right:5%;">
@@ -1537,6 +1670,10 @@
           will-change: transform;
           padding-right: 5%;
           padding-bottom: 4px;
+        }
+        @media (max-width: 480px) {
+          #app-track > div { width: 80vw !important; }
+          #app-track > div p { font-size: 22px !important; bottom: 24px !important; left: 24px !important; right: 24px !important; }
         }
       </style>
 
@@ -1750,11 +1887,11 @@
       <!-- Header -->
       <div class="install-header" style="margin-bottom:64px;">
         <p style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#7aaeff; margin-bottom:14px;">Installation Process</p>
-        <h2 style="font-size:clamp(36px,5vw,60px); font-weight:700; letter-spacing:-0.04em; color:white; line-height:1.05; margin-bottom:0; white-space:nowrap;">4 steps in 2 days, ready to go!</h2>
+        <h2 class="install-heading" style="font-size:clamp(36px,5vw,60px); font-weight:700; letter-spacing:-0.04em; color:white; line-height:1.05; margin-bottom:0;">4 steps in 2 days, ready to go!</h2>
       </div>
 
       <!-- Steps grid -->
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:24px;">
+      <div class="install-steps-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:24px;">
 
         <!-- Step 1 -->
         <div style="display:flex; flex-direction:column; gap:0;">
@@ -1814,7 +1951,7 @@
     <div style="max-width:100%;">
 
       <!-- TOP ROW: text left + 2 cards right (same as compare section) -->
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; align-items:start; margin-bottom:24px;">
+      <div class="pricing-top-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; align-items:start; margin-bottom:24px;">
 
         <!-- LEFT: heading -->
         <div class="fade-up pricing-anim" style="transition-delay:0.00s;">
