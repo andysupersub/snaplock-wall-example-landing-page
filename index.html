@@ -1267,10 +1267,11 @@
       .applications-section .fade-up { padding-left: 20px !important; padding-right: 20px !important; margin-bottom: 32px !important; }
       .install-header { margin-bottom: 40px !important; }
       /* Comparison section padding */
-      section[style*="background:#F0F4FD"] { padding: 56px 20px !important; }
+      section[style*="background:#F0F4FD"] { padding: 40px 16px !important; }
       /* Reduce font sizes in comparison table */
-      .compare-inner > div > div { padding: 14px 12px !important; font-size: 14px !important; }
-      .compare-inner > div { min-width: 420px !important; }
+      .compare-inner > div > div { padding: 10px 6px !important; font-size: 11px !important; }
+      .compare-inner > div { min-width: 0 !important; }
+      .compare-inner { overflow-x: hidden !important; }
       /* Pain section padding fix */
       .pain-section { padding-top: 56px !important; padding-bottom: 56px !important; }
     }
@@ -1341,19 +1342,23 @@
         border-radius: 20px !important;
       }
 
-      /* Comparison table: scroll on mobile */
+      /* Comparison table: fit to screen on mobile */
       .compare-inner {
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden !important;
       }
       .compare-inner > div {
-        min-width: 500px;
+        min-width: 0 !important;
       }
-      /* Wrap the compare section padding to not clip scroll */
-      .compare-inner {
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        border-radius: 0 !important;
+      /* Shrink all text and padding inside the compare table */
+      .compare-inner > div > div {
+        font-size: 11px !important;
+        padding: 10px 6px !important;
+        white-space: normal !important;
+        letter-spacing: 0 !important;
+      }
+      .compare-inner > div > div span {
+        font-size: 10px !important;
+        padding: 3px 6px !important;
       }
 
       /* Installation steps: 1 col on mobile */
