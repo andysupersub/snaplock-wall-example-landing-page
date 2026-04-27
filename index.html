@@ -168,6 +168,23 @@
       color: var(--white);
       font-weight: 600;
       font-size: 16px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .hero-proof-quote {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+      font-style: italic;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 10px;
+      margin: 0;
+    }
+    .hero-proof-quote em {
+      font-style: normal;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
     }
     .hero-ctas {
       display: flex;
@@ -925,6 +942,7 @@
       .btn-hero, .btn-primary, .btn-outline {
         width: 100%;
         text-align: center;
+        justify-content: center;
         font-size: 15px !important;
         padding: 14px 20px !important;
         white-space: normal !important;
@@ -1398,8 +1416,8 @@
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Customer"/>
         </div>
         <div class="hero-proof-text">
-          <strong>100+ NZ builders & homeowners trust Snaplock</strong><br>
-          &ldquo;Walls done in 2 days. No sanding, no painting, we just handed<br>over the keys.&rdquo; Craig B., Auckland Builder
+          <strong>100+ NZ builders &amp; homeowners trust Snaplock</strong>
+          <p class="hero-proof-quote">&ldquo;Walls done in 2 days. No sanding, no painting, we just handed over the keys.&rdquo; <em>Craig B., Auckland Builder</em></p>
         </div>
       </div>
 
