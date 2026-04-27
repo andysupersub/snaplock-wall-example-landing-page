@@ -961,10 +961,16 @@
       }
 
       /* STATS BAR */
-      .stats-bar { padding: 32px 20px !important; }
-      .stats-bar-inner { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
-      .stat-num { font-size: 38px !important; }
-      .stat-label { font-size: 13px !important; white-space: normal !important; }
+      .stats-bar { padding: 24px 20px !important; }
+      .stats-bar-inner { grid-template-columns: 1fr !important; gap: 0 !important; }
+      .stat-item { padding: 24px 20px !important; }
+      /* Horizontal divider on mobile instead of vertical */
+      .stat-item + .stat-item::before {
+        left: 10% !important; right: 10% !important; top: 0 !important; bottom: auto !important;
+        width: auto !important; height: 1px !important;
+      }
+      .stat-num { font-size: 48px !important; }
+      .stat-label { font-size: 14px !important; white-space: normal !important; }
 
       /* SECTION HEADINGS */
       .section-heading {
@@ -1152,7 +1158,7 @@
         font-size: 28px !important;
       }
       .nav-cta { padding: 7px 12px !important; font-size: 11px !important; }
-      .stats-bar-inner { gap: 18px !important; }
+      .stats-bar-inner { gap: 0 !important; }
       .stat-num { font-size: 30px !important; }
       .stat-label { font-size: 12px !important; }
       .anim-bar > span:nth-of-type(2) { font-size: 11px !important; }
