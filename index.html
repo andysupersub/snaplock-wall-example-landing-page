@@ -143,12 +143,18 @@
     }
     .hero-proof {
       display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+    .hero-proof-top {
+      display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 32px;
     }
     .hero-proof-avatars {
       display: flex;
+      flex-shrink: 0;
     }
     .hero-proof-avatars img {
       width: 38px; height: 38px;
@@ -158,6 +164,12 @@
       object-fit: cover;
     }
     .hero-proof-avatars img:first-child { margin-left: 0; }
+    .hero-proof-strong {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.4;
+    }
     .hero-proof-text {
       font-size: 15px;
       font-weight: 300;
@@ -175,9 +187,8 @@
       color: rgba(255,255,255,0.55);
       line-height: 1.55;
       font-style: italic;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 10px;
-      margin: 0;
+      margin: 2px 0 0 0;
+      padding: 0;
     }
     .hero-proof-quote em {
       font-style: normal;
@@ -923,6 +934,7 @@
       }
       .hero p br, .anim-desc br { display: none; }
       .hero-proof-text br { display: none; }
+      .hero-proof-strong { font-size: 13px !important; }
       .hero-proof {
         flex-direction: row;
         flex-wrap: wrap;
@@ -931,7 +943,7 @@
       }
       .hero-proof-avatars { flex-shrink: 0; }
       .hero-proof-text { font-size: 13px !important; line-height: 1.45 !important; }
-      .hero-proof-text strong { display: block !important; margin-bottom: 8px !important; }
+      .hero-proof-strong { font-size: 13px !important; line-height: 1.4 !important; }
       .hero-proof-quote { font-size: 12px !important; }
       .hero-ctas {
         flex-direction: column;
@@ -1410,15 +1422,15 @@
       <p class="anim-desc">Pre-finished modular wall panels <strong>installed by a single crew in 2–3 days</strong>,<br>cutting your build cost by over 50% compared to traditional GIB®.</p>
 
       <div class="hero-proof anim-proof">
-        <div class="hero-proof-avatars">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Customer"/>
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Customer"/>
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Customer"/>
+        <div class="hero-proof-top">
+          <div class="hero-proof-avatars">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Customer"/>
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Customer"/>
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Customer"/>
+          </div>
+          <strong class="hero-proof-strong">100+ NZ builders &amp; homeowners trust Snaplock</strong>
         </div>
-        <div class="hero-proof-text">
-          <strong>100+ NZ builders &amp; homeowners trust Snaplock</strong>
-          <p class="hero-proof-quote">&ldquo;Walls done in 2 days. No sanding, no painting, we just handed over the keys.&rdquo; <em>Craig B., Auckland Builder</em></p>
-        </div>
+        <p class="hero-proof-quote">&ldquo;Walls done in 2 days. No sanding, no painting, we just handed over the keys.&rdquo; <em>Craig B., Auckland Builder</em></p>
       </div>
 
       <div class="hero-ctas anim-cta">
