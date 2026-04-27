@@ -1105,6 +1105,12 @@
       }
       #wall-rows > div { position: relative; }
 
+      /* LOGO BAR LABEL: hide on mobile */
+      .logo-bar-label { display: none !important; }
+
+      /* PAIN HEADLINE: +8px on mobile */
+      .pain-headline { font-size: clamp(34px, 9vw, 40px) !important; }
+
       /* STOP WAITING SECTION */
       .stop-waiting { padding: 56px 20px !important; }
       .sw-anim h2, h2.sw-anim-1 {
@@ -1559,7 +1565,7 @@
     <div style="max-width:100%; margin:0 auto; display:flex; align-items:center; gap:0; padding-left:5%;">
 
       <!-- Label -->
-      <div style="font-size:11px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--grey); white-space:nowrap; padding-right:28px; border-right:1px solid var(--border); flex-shrink:0;">Proudly Working With</div>
+      <div class="logo-bar-label" style="font-size:11px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--grey); white-space:nowrap; padding-right:28px; border-right:1px solid var(--border); flex-shrink:0;">Proudly Working With</div>
 
       <!-- Scrolling track -->
       <div style="overflow:hidden; flex:1; position:relative;">
@@ -1578,7 +1584,7 @@
         <!-- LEFT: Headline + description -->
         <div class="pain-anim pain-anim-left">
           <div class="section-label" style="color:#011648;">The Problem with Traditional Walls</div>
-          <h2 class="section-heading" style="font-weight:800; font-size:clamp(30px,3.8vw,46px);">GIB® takes 7 days<br><span style="color:#276ce9;">We do it in 2 days!</span></h2>
+          <h2 class="section-heading pain-headline" style="font-weight:800; font-size:clamp(30px,3.8vw,46px);">GIB® takes 7 days<br><span style="color:#276ce9;">We do it in 2 days!</span></h2>
           <p style="font-size:15px; font-weight:300; line-height:1.7; color:var(--grey); margin-top:16px;">Traditional wall systems require up to nine site visits and multiple trades. Snaplock eliminates almost all of that.</p>
         </div>
 
